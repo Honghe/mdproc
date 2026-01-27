@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mdproc"
+version = "0.2.0"
+description = "A tool to process markdown files."
+authors = [{ name = "Honghe" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["httpx", "python-dotenv", "cos-python-sdk-v5"]
+keywords = ["markdown", "jpg", "png", "process"]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Multimedia :: Video",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+[project.scripts]
+mdproc = "mdproc.mdproc:main"
+mdproc-imgupload = "mdproc.mdimgupload:main"
+
+
+[project.urls]
+Homepage = "https://github.com/honghe/mdproc"
+Repository = "https://github.com/honghe/mdproc"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mdproc"]
+
+[project.optional-dependencies]
+dev = ["build", "twine"]
+
+[tool.hatch.publish]
+repository = "pypi"
