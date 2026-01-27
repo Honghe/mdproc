@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mdproc"
-version = "0.2.1"
+version = "0.2.2"
 description = "A tool to process markdown files."
 authors = [{ name = "Honghe" }]
 readme = "README.md"
@@ -27,7 +27,7 @@ classifiers = [
 [project.scripts]
 mdproc = "mdproc.mdproc:main"
 mdproc-imgupload = "mdproc.mdimgupload:main"
-
+mdproc-forzhihu = "mdproc.mdforzhihu:main"
 
 [project.urls]
 Homepage = "https://github.com/honghe/mdproc"
