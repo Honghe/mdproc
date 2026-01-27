@@ -1,6 +1,7 @@
 """
 Markdown Image Uploader to COS
 """
+import urllib.parse
 import httpx
 
 import argparse
@@ -17,6 +18,11 @@ from .cos_uploader import upload
 
 load_dotenv()
 
+def get_img_filename(url):
+    url = urllib.parse.unquote(url)
+    # Remove query parameters and anchor in url
+    url = url.split('?', 1)[0].split('#', 1)[0]
+    return os.path.basename(url)
 
 def main():
     parser = argparse.ArgumentParser(
@@ -36,8 +42,8 @@ def main():
     os.makedirs(img_dir, exist_ok=True)
 
     # Regex to match img URLs in markdown image tags
-    pattern = re.compile(r"!\[(.*?)\]\((https?://[^\s)]+?\.(?:png|jpg|jpeg))\)")
-    # Find all img links match group 2
+    # url example: ![alt text](http://example.com/image.png?param=value#anchor)
+    pattern = re.compile(r"!\[(.*?)\]\((https?://[^\s)]+?\.(?:png|jpg|jpeg|gif)(?:\?[^\s)#]*)?(?:#[^\s)]*)?)\)")
     matches = list(pattern.finditer(content))
     print(f"Find {len(matches)} img links")
 
@@ -50,7 +56,7 @@ def main():
             print(f"Reusing img for {url} -> {img_path}")
             continue
         # Use a hash or basename for unique filename
-        basename = os.path.basename(url)
+        basename = get_img_filename(url)
         name, ext = os.path.splitext(basename)
         # Use hash to avoid collision
         url_hash = hashlib.md5(url.encode("utf-8")).hexdigest()[:8]
