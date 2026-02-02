@@ -41,16 +41,18 @@ def table_to_image(md_text, output_path):
     <html>
     <head>
     <style>
+    # usually 800px in width, but can be wider if there no sentenses to break.
     table {{
-    border-collapse: collapse;
-    width: max-content;
-    table-layout: fixed;
-    font-size: 14px;
+        border-collapse: collapse;
+        width: auto;
+        max-width: 800px;
+        table-layout: auto;
+        font-size: 14px;
     }}
     td, th {{
-    border: 1px solid #333;
-    padding: 6px 10px;
-    word-break: break-word;
+        border: 1px solid #333;
+        padding: 6px 10px;
+        white-space: pre-line;
     }}
     </style>
     </head>
