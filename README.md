@@ -5,6 +5,7 @@ A simple Python tool to process markdown files.
 ## Features
 
 - Markdown Image Uploader to COS.
+- Convert Markdown tables to images and upload to COS.
 
 ## Config
 
@@ -21,6 +22,7 @@ COS_BUCKET=<xyz>
 1. Install dependencies:
     ```bash
     pip install mdproc
+    playwright install chromium
     ```
 2. Run the script:
     ```bash

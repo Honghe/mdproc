@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mdproc"
-version = "0.2.2"
+version = "0.3.0"
 description = "A tool to process markdown files."
 authors = [{ name = "Honghe" }]
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["httpx", "python-dotenv", "cos-python-sdk-v5"]
+dependencies = ["httpx", "python-dotenv", "cos-python-sdk-v5", "markdown-it-py", "playwright"]
 keywords = ["markdown", "jpg", "png", "process"]
 
 classifiers = [
@@ -28,6 +28,7 @@ classifiers = [
 mdproc = "mdproc.mdproc:main"
 mdproc-imgupload = "mdproc.mdimgupload:main"
 mdproc-forzhihu = "mdproc.mdforzhihu:main"
+mdproc-table2img = "mdproc.mdtable2img:main"
 
 [project.urls]
 Homepage = "https://github.com/honghe/mdproc"
