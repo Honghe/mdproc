@@ -1,0 +1,41 @@
+{
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: mdimgupload",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "mdproc.mdimgupload",
+            "args": [
+                "mdproc/demo.md"
+            ],
+            "cwd": "${workspaceFolder}/src",
+        },
+        {
+            "name": "Python Debugger: mdtable2img",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "mdproc.mdtable2img",
+            "args": [
+                "mdproc/demo_table.md"
+            ],
+            "cwd": "${workspaceFolder}/src",
+        },
+        {
+            "name": "Python Debugger: mdmermaid2img",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "mdproc.mdmermaid2img",
+            "args": [
+                "mdproc/demo_mermaid.md"
+            ],
+            "cwd": "${workspaceFolder}/src",
+        }
+    ]
+}

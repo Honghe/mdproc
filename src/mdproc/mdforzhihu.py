@@ -9,7 +9,7 @@ def main():
     parser.add_argument("input_file", help="Path to the input markdown file.")
     args = parser.parse_args()
     input_file = args.input_file
-    output_file = f"{os.path.splitext(input_file)[0]}_forzhihu.md"
+    output_file = f"{os.path.splitext(input_file)[0]}_4zhihu.md"
     with open(input_file, "r", encoding="utf-8") as f:
         lines = f.readlines()
     new_lines = []

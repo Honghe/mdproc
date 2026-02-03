@@ -79,7 +79,7 @@ def main():
     args = parser.parse_args()
     input_file = args.input_file
 
-    output_file = f"{os.path.splitext(input_file)[0]}_table2img.md"
+    output_file = f"{os.path.splitext(input_file)[0]}_tb2img.md"
 
     with open(input_file, "r", encoding="utf-8") as f:
         content = f.read()
