@@ -5,8 +5,8 @@ A simple Python tool to process markdown files.
 ## Features
 
 - Markdown Image Uploader to COS.
-- Convert Markdown tables to images and upload to COS.
-- Convert mermaid chart to image. (dependency `npm install -g @mermaid-js/mermaid-cli`)
+- Convert Markdown tables to images and upload to COS. (dependency: playwright)
+- Convert mermaid chart to image.  (dependency: playwright)
 
 ## Config
 
@@ -24,7 +24,6 @@ COS_BUCKET=<xyz>
 - Install dependencies:
   ```bash
   pip install mdproc
-  # for md-table2img
   playwright install chromium
   ```
 - Markdown images upload:
