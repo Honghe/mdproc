@@ -11,6 +11,7 @@ A simple Python tool to process markdown files.
 ## Config
 
 `.env` or configure environment variables:
+
 ```
 COS_SECRET_ID=<xyz>
 COS_SECRET_KEY=<xyz>
@@ -20,31 +21,48 @@ COS_BUCKET=<xyz>
 
 ## Usage
 
-1. Install dependencies:
-    ```bash
-    pip install mdproc
-    # for md-table2img
-    playwright install chromium
-    
-    # for md-mermaid2img
-    pnpx puppeteer browsers install chrome-headless-shell@[right version]
-    ```
-2. Run the script:
-    ```bash
-    mdproc-imgupload your_markdown.md
-    ```
+- Install dependencies:
+  ```bash
+  pip install mdproc
+  # for md-table2img
+  playwright install chromium
+  ```
+- Markdown images upload:
+  ```bash
+  mdproc-imgupload your_markdown.md
+  ```
+- Markdown table to image:
+  ```bash
+   mdproc-table2img your_markdown.md
+  ```
+- Markdown mermaid to image:
+  ```bash
+   mdproc-mermaid2img your_markdown.md
+  ```
 
 ## Demo
 
 demo.md:
+
 ```
 ![first-version](https://www.python.org/static/img/python-logo.png)
 ```
 
 demo_output.md
+
 ```
 ![first-version](https://pic-1251484506.cos.ap-guangzhou.myqcloud.com/imgs/python-logo_ae79195a.png)
 ```
+
+## mermaid2img Benchmark
+
+Note: Browser is Chromium. mermaid-cli use puppeteer.
+
+| mermaid2img | Cold Start /s | Warm Start /s |
+| --------------------------------- | ------------- | ------------- |
+| playwright (memaidjs cdn) | 2.5 | 1.5 |
+| playwright (local mermaid bundle) | 2.5 | 1.5 |
+| mermaid-cli | 5.7 | 3.7 |
 
 ## License
 

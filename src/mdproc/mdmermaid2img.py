@@ -23,7 +23,7 @@ import tempfile
 from pathlib import Path
 from typing import Optional, Tuple, Dict, List
 
-from .mermaid2img import render_mermaid_cli
+from .mermaid2img_playwright import render_mermaid_playwright
 from .cos_uploader import upload
 
 load_dotenv()
@@ -83,7 +83,7 @@ def mermaid_to_image(
     output_path = os.path.join(output_dir, output_filename)
 
     # Render mermaid code to image
-    render_mermaid_cli(mermaid_code, output_path, theme=theme, scale=scale)
+    render_mermaid_playwright(mermaid_code, output_path, theme=theme, scale=scale)
 
     return output_path
 
@@ -275,7 +275,7 @@ def main():
     input_file = args.input_file
 
     output_file = f"{os.path.splitext(input_file)[0]}_mm2img.md"
-    process_mermaid_markdown_3steps(input_file, output_path=output_file)
+    process_mermaid_markdown_3steps(input_file, output_path=output_file, scale=2)
 
 
 if __name__ == "__main__":
